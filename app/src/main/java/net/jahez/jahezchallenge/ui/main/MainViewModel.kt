@@ -11,7 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import net.jahez.jahezchallenge.model.Poster
+import net.jahez.jahezchallenge.model.Entity
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -20,7 +20,7 @@ class MainViewModel @Inject constructor(
   mainRepository: MainRepository
 ) : ViewModel() {
 
-  val posterList: Flow<List<Poster>> =
+  val posterList: Flow<List<Entity>> =
     mainRepository.loadDisneyPosters(
       onStart = { _isLoading.value = true },
       onCompletion = { _isLoading.value = false },

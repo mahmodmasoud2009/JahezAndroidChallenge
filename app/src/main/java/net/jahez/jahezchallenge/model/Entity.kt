@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 @Immutable
-data class Poster(
+data class Entity(
     @PrimaryKey val id: Long,
     val name: String,
     val description: String,
@@ -23,7 +23,7 @@ data class Poster(
 
     companion object {
 
-        fun mock() = Poster(
+        fun mock() = Entity(
             id = 0,
             name = "Kudu",
             description = "Enjoy fast delivery from Jahez. Order now, or schedule your order any time you want",

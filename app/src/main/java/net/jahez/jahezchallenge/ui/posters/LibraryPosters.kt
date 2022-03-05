@@ -29,13 +29,13 @@ import com.google.accompanist.insets.statusBarsPadding
 import net.jahez.jahezchallenge.ui.custom.StaggeredVerticalGrid
 import net.jahez.jahezchallenge.ui.theme.DisneyComposeTheme
 import net.jahez.jahezchallenge.utils.NetworkImage
-import net.jahez.jahezchallenge.model.Poster
+import net.jahez.jahezchallenge.model.Entity
 
 @Composable
 fun LibraryPosters(
-  modifier: Modifier = Modifier,
-  posters: List<Poster>,
-  selectPoster: (Long) -> Unit = {},
+    modifier: Modifier = Modifier,
+    posters: List<Entity>,
+    selectPoster: (Long) -> Unit = {},
 ) {
   Column(
     modifier = modifier
@@ -56,9 +56,9 @@ fun LibraryPosters(
 
 @Composable
 private fun LibraryPoster(
-  modifier: Modifier = Modifier,
-  poster: Poster,
-  selectPoster: (Long) -> Unit = {},
+    modifier: Modifier = Modifier,
+    poster: Entity,
+    selectPoster: (Long) -> Unit = {},
 ) {
   Surface(
     modifier = modifier
@@ -118,7 +118,7 @@ private fun LibraryPoster(
 private fun LibraryPosterPreviewLight() {
   DisneyComposeTheme(darkTheme = false) {
     LibraryPoster(
-      poster = Poster.mock()
+      poster = Entity.mock()
     )
   }
 }
@@ -128,7 +128,7 @@ private fun LibraryPosterPreviewLight() {
 private fun LibraryPosterPreviewDark() {
   DisneyComposeTheme(darkTheme = true) {
     LibraryPoster(
-      poster = Poster.mock()
+      poster = Entity.mock()
     )
   }
 }

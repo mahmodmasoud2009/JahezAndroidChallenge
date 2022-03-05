@@ -2,7 +2,6 @@
  * Designed and developed by 2022 Mahmoud Masoud
  */
 package net.jahez.jahezchallenge.ui.main
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel

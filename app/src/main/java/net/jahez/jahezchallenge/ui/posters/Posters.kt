@@ -8,20 +8,10 @@ import androidx.annotation.StringRes
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Icon
-import androidx.compose.material.LocalContentColor
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.LibraryAdd
-import androidx.compose.material.icons.filled.Radio
-import androidx.compose.material.primarySurface
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -40,7 +30,8 @@ import com.google.accompanist.insets.navigationBarsPadding
 import net.jahez.jahezchallenge.R
 import net.jahez.jahezchallenge.ui.theme.purple200
 import net.jahez.jahezchallenge.extensions.visible
-import net.jahez.jahezchallenge.model.Poster
+import net.jahez.jahezchallenge.model.Entity
+import net.jahez.jahezchallenge.ui.settings.SettingsLanguage
 import net.jahez.jahezchallenge.ui.main.MainViewModel
 
 @Composable
@@ -48,7 +39,7 @@ fun Posters(
   viewModel: MainViewModel,
   selectPoster: (Long) -> Unit
 ) {
-  val posters: List<Poster> by viewModel.posterList.collectAsState(initial = listOf())
+  val posters: List<Entity> by viewModel.posterList.collectAsState(initial = listOf())
   val isLoading: Boolean by viewModel.isLoading
   val selectedTab = DisneyHomeTab.getTabFromResource(viewModel.selectedTab.value)
   val tabs = DisneyHomeTab.values()
@@ -84,9 +75,8 @@ fun Posters(
       val modifier = Modifier.padding(innerPadding)
       Crossfade(selectedTab) { destination ->
         when (destination) {
-          DisneyHomeTab.HOME -> HomePosters(modifier, posters, selectPoster)
-          DisneyHomeTab.RADIO -> RadioPosters(modifier, posters, selectPoster)
-          DisneyHomeTab.LIBRARY -> LibraryPosters(modifier, posters, selectPoster)
+          DisneyHomeTab.HOME -> RadioPosters(modifier, posters, selectPoster)
+          DisneyHomeTab.Settings -> SettingsLanguage()
         }
       }
     }
@@ -109,7 +99,8 @@ private fun PosterAppBar() {
   TopAppBar(
     elevation = 6.dp,
     backgroundColor = purple200,
-    modifier = Modifier.height(58.dp)
+    modifier = Modifier.height(58.dp),
+
   ) {
     Text(
       modifier = Modifier
@@ -128,14 +119,12 @@ enum class DisneyHomeTab(
   val icon: ImageVector
 ) {
   HOME(R.string.menu_home, Icons.Filled.Home),
-  RADIO(R.string.menu_radio, Icons.Filled.Radio),
-  LIBRARY(R.string.menu_library, Icons.Filled.LibraryAdd);
+  Settings(R.string.menu_settings, Icons.Filled.Settings);
 
   companion object {
     fun getTabFromResource(@StringRes resource: Int): DisneyHomeTab {
       return when (resource) {
-        R.string.menu_radio -> RADIO
-        R.string.menu_library -> LIBRARY
+        R.string.menu_settings -> Settings
         else -> HOME
       }
     }

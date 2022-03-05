@@ -14,15 +14,15 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
-import net.jahez.jahezchallenge.model.Poster
+import net.jahez.jahezchallenge.model.Entity
 import net.jahez.jahezchallenge.network.DisneyService
-import net.jahez.jahezchallenge.persistence.PosterDao
+import net.jahez.jahezchallenge.persistence.JahezDao
 import timber.log.Timber
 import javax.inject.Inject
 
 class MainRepository @Inject constructor(
   private val disneyService: DisneyService,
-  private val posterDao: PosterDao
+  private val posterDao: JahezDao
 ) {
 
   init {
@@ -35,7 +35,7 @@ class MainRepository @Inject constructor(
     onCompletion: () -> Unit,
     onError: (String) -> Unit
   ) = flow {
-    val posters: List<Poster> = posterDao.getPosterList()
+    val posters: List<Entity> = posterDao.getPosterList()
     if (posters.isEmpty()) {
       // request API network call asynchronously.
       disneyService.fetchDisneyPosterList()

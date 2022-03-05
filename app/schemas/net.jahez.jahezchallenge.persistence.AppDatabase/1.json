@@ -2,10 +2,10 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2023a5d52c100b58474db2c32b84f92a",
+    "identityHash": "0d260f464750b913c4f8d94887950392",
     "entities": [
       {
-        "tableName": "Poster",
+        "tableName": "Entity",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `hours` TEXT NOT NULL, `image` TEXT NOT NULL, `rating` INTEGER NOT NULL, `distance` REAL NOT NULL, `hasOffer` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
@@ -70,7 +70,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2023a5d52c100b58474db2c32b84f92a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0d260f464750b913c4f8d94887950392')"
     ]
   }
 }

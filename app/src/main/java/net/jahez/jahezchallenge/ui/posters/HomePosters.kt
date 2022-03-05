@@ -25,13 +25,13 @@ import com.google.accompanist.insets.statusBarsPadding
 import net.jahez.jahezchallenge.ui.custom.StaggeredVerticalGrid
 import net.jahez.jahezchallenge.ui.theme.DisneyComposeTheme
 import net.jahez.jahezchallenge.utils.NetworkImage
-import net.jahez.jahezchallenge.model.Poster
+import net.jahez.jahezchallenge.model.Entity
 
 @Composable
 fun HomePosters(
-  modifier: Modifier = Modifier,
-  posters: List<Poster>,
-  selectPoster: (Long) -> Unit,
+    modifier: Modifier = Modifier,
+    posters: List<Entity>,
+    selectPoster: (Long) -> Unit,
 ) {
   Column(
     modifier = modifier
@@ -55,9 +55,9 @@ fun HomePosters(
 
 @Composable
 private fun HomePoster(
-  modifier: Modifier = Modifier,
-  poster: Poster,
-  selectPoster: (Long) -> Unit = {},
+    modifier: Modifier = Modifier,
+    poster: Entity,
+    selectPoster: (Long) -> Unit = {},
 ) {
   Surface(
     modifier = modifier
@@ -114,7 +114,7 @@ private fun HomePoster(
 private fun HomePosterPreviewLight() {
   DisneyComposeTheme(darkTheme = false) {
     HomePoster(
-      poster = Poster.mock()
+      poster = Entity.mock()
     )
   }
 }
@@ -124,7 +124,7 @@ private fun HomePosterPreviewLight() {
 private fun HomePosterPreviewDark() {
   DisneyComposeTheme(darkTheme = true) {
     HomePoster(
-      poster = Poster.mock()
+      poster = Entity.mock()
     )
   }
 }

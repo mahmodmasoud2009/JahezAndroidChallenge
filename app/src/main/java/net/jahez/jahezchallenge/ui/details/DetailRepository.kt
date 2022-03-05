@@ -8,11 +8,11 @@ import androidx.annotation.WorkerThread
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import net.jahez.jahezchallenge.persistence.PosterDao
+import net.jahez.jahezchallenge.persistence.JahezDao
 import javax.inject.Inject
 
 class DetailRepository @Inject constructor(
-  private val posterDao: PosterDao
+  private val posterDao: JahezDao
 ) {
 
   @WorkerThread

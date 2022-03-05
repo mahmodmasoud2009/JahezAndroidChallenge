@@ -29,13 +29,13 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.google.accompanist.insets.statusBarsPadding
 import net.jahez.jahezchallenge.ui.theme.DisneyComposeTheme
 import net.jahez.jahezchallenge.utils.NetworkImage
-import net.jahez.jahezchallenge.model.Poster
+import net.jahez.jahezchallenge.model.Entity
 
 @Composable
 fun RadioPosters(
-  modifier: Modifier = Modifier,
-  posters: List<Poster>,
-  selectPoster: (Long) -> Unit = {},
+    modifier: Modifier = Modifier,
+    posters: List<Entity>,
+    selectPoster: (Long) -> Unit = {},
 ) {
   val listState = rememberLazyListState()
   Column(
@@ -62,9 +62,9 @@ fun RadioPosters(
 
 @Composable
 private fun RadioPoster(
-  modifier: Modifier = Modifier,
-  poster: Poster,
-  selectPoster: (Long) -> Unit = {},
+    modifier: Modifier = Modifier,
+    poster: Entity,
+    selectPoster: (Long) -> Unit = {},
 ) {
   Surface(
     modifier = modifier
@@ -124,7 +124,7 @@ private fun RadioPoster(
 private fun RadioPosterPreviewLight() {
   DisneyComposeTheme(darkTheme = false) {
     RadioPoster(
-      poster = Poster.mock(),
+      poster = Entity.mock(),
       selectPoster = { }
     )
   }
@@ -135,7 +135,7 @@ private fun RadioPosterPreviewLight() {
 private fun RadioPosterPreviewDark() {
   DisneyComposeTheme(darkTheme = true) {
     RadioPoster(
-      poster = Poster.mock(),
+      poster = Entity.mock(),
       selectPoster = { }
     )
   }

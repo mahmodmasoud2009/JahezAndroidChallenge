@@ -12,7 +12,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import net.jahez.jahezchallenge.R
 import net.jahez.jahezchallenge.persistence.AppDatabase
-import net.jahez.jahezchallenge.persistence.PosterDao
+import net.jahez.jahezchallenge.persistence.JahezDao
 import javax.inject.Singleton
 
 @Module
@@ -34,7 +34,7 @@ object PersistenceModule {
 
   @Provides
   @Singleton
-  fun providePosterDao(appDatabase: AppDatabase): PosterDao {
+  fun providePosterDao(appDatabase: AppDatabase): JahezDao {
     return appDatabase.posterDao()
   }
 }
