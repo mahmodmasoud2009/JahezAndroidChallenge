@@ -16,7 +16,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import net.jahez.jahezchallenge.network.DisneyService
+import net.jahez.jahezchallenge.network.JahezService
 import net.jahez.jahezchallenge.network.RequestInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -66,7 +66,7 @@ object NetworkModule {
 
   @Provides
   @Singleton
-  fun provideDisneyService(retrofit: Retrofit): DisneyService {
-    return retrofit.create(DisneyService::class.java)
+  fun provideDisneyService(retrofit: Retrofit): JahezService {
+    return retrofit.create(JahezService::class.java)
   }
 }

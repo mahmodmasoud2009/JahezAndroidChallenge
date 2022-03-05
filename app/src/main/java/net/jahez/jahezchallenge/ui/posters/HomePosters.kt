@@ -28,7 +28,7 @@ import net.jahez.jahezchallenge.utils.NetworkImage
 import net.jahez.jahezchallenge.model.Entity
 
 @Composable
-fun HomePosters(
+fun Home(
     modifier: Modifier = Modifier,
     posters: List<Entity>,
     selectPoster: (Long) -> Unit,
@@ -44,7 +44,7 @@ fun HomePosters(
       modifier = Modifier.padding(4.dp)
     ) {
       posters.forEach { poster ->
-        HomePoster(
+        Home(
           poster = poster,
           selectPoster = selectPoster
         )
@@ -54,7 +54,7 @@ fun HomePosters(
 }
 
 @Composable
-private fun HomePoster(
+private fun Home(
     modifier: Modifier = Modifier,
     poster: Entity,
     selectPoster: (Long) -> Unit = {},
@@ -113,7 +113,7 @@ private fun HomePoster(
 @Preview(name = "HomePoster Light Theme")
 private fun HomePosterPreviewLight() {
   DisneyComposeTheme(darkTheme = false) {
-    HomePoster(
+    Home(
       poster = Entity.mock()
     )
   }
@@ -123,7 +123,7 @@ private fun HomePosterPreviewLight() {
 @Preview(name = "HomePoster Dark Theme")
 private fun HomePosterPreviewDark() {
   DisneyComposeTheme(darkTheme = true) {
-    HomePoster(
+    Home(
       poster = Entity.mock()
     )
   }

@@ -8,7 +8,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
-import net.jahez.jahezchallenge.network.DisneyService
+import net.jahez.jahezchallenge.network.JahezService
 import net.jahez.jahezchallenge.persistence.JahezDao
 import net.jahez.jahezchallenge.ui.main.MainRepository
 
@@ -19,8 +19,8 @@ object RepositoryModule {
   @Provides
   @ViewModelScoped
   fun provideMainRepository(
-    disneyService: DisneyService,
-    posterDao: JahezDao
+      disneyService: JahezService,
+      posterDao: JahezDao
   ): MainRepository {
     return MainRepository(disneyService, posterDao)
   }

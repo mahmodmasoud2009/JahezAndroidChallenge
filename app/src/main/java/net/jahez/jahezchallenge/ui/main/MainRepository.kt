@@ -15,13 +15,13 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import net.jahez.jahezchallenge.model.Entity
-import net.jahez.jahezchallenge.network.DisneyService
+import net.jahez.jahezchallenge.network.JahezService
 import net.jahez.jahezchallenge.persistence.JahezDao
 import timber.log.Timber
 import javax.inject.Inject
 
 class MainRepository @Inject constructor(
-  private val disneyService: DisneyService,
+  private val disneyService: JahezService,
   private val posterDao: JahezDao
 ) {
 

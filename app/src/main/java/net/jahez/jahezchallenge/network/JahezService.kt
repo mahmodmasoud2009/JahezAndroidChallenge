@@ -7,7 +7,7 @@ import com.skydoves.sandwich.ApiResponse
 import net.jahez.jahezchallenge.model.Entity
 import retrofit2.http.GET
 
-interface DisneyService {
+interface JahezService {
 
   @GET("restaurants.json")
   suspend fun fetchDisneyPosterList(): ApiResponse<List<Entity>>

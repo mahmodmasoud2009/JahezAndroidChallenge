@@ -41,8 +41,8 @@ fun Posters(
 ) {
   val posters: List<Entity> by viewModel.posterList.collectAsState(initial = listOf())
   val isLoading: Boolean by viewModel.isLoading
-  val selectedTab = DisneyHomeTab.getTabFromResource(viewModel.selectedTab.value)
-  val tabs = DisneyHomeTab.values()
+  val selectedTab = HomeTab.getTabFromResource(viewModel.selectedTab.value)
+  val tabs = HomeTab.values()
 
   ConstraintLayout {
     val (body, progress) = createRefs()
@@ -75,8 +75,8 @@ fun Posters(
       val modifier = Modifier.padding(innerPadding)
       Crossfade(selectedTab) { destination ->
         when (destination) {
-          DisneyHomeTab.HOME -> RadioPosters(modifier, posters, selectPoster)
-          DisneyHomeTab.Settings -> SettingsLanguage()
+          HomeTab.HOME -> RadioPosters(modifier, posters, selectPoster)
+          HomeTab.Settings -> SettingsLanguage()
         }
       }
     }
@@ -114,7 +114,7 @@ private fun PosterAppBar() {
   }
 }
 
-enum class DisneyHomeTab(
+enum class HomeTab(
   @StringRes val title: Int,
   val icon: ImageVector
 ) {
@@ -122,7 +122,7 @@ enum class DisneyHomeTab(
   Settings(R.string.menu_settings, Icons.Filled.Settings);
 
   companion object {
-    fun getTabFromResource(@StringRes resource: Int): DisneyHomeTab {
+    fun getTabFromResource(@StringRes resource: Int): HomeTab {
       return when (resource) {
         R.string.menu_settings -> Settings
         else -> HOME
